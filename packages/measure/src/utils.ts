@@ -15,9 +15,11 @@ export function pickCartesian3(
 ): Cartesian3 | undefined {
   // We use `viewer.scene.pickPosition` here instead of `viewer.camera.pickEllipsoid` so that
   // we get the correct point when mousing over terrain.
-  const ray = viewer.camera.getPickRay(position);
-  if (ray) return viewer.scene.globe.pick(ray, viewer.scene);
-  return undefined;
+  // const ray = viewer.camera.getPickRay(position);
+  // if (ray) return viewer.scene.globe.pick(ray, viewer.scene);
+  // return undefined;
+  return viewer.scene.pickPosition(position);
+  //
 }
 
 export function getBounds(points: Cartesian2[]): number[] {
